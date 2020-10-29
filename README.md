@@ -1,12 +1,16 @@
-The Smart API Go client
+#The Smart API Go client
+
 The official Go client for communicating with the Angel Broking Smart APIs.
 
 SmartAPI is a set of REST-like APIs that expose many capabilities required to build a complete investment and trading platform. Execute orders in real time, manage user portfolio, stream live market data (WebSockets), and more, with the simple HTTP API collection.
 
 
-Installation
+##Installation
+```
 go get github.com/angelbroking-github/smartapi-golang
-API usage
+```
+##API usage
+```
 package main
 
 import (
@@ -60,11 +64,15 @@ func main() {
 
 	fmt.Println("Placed Order ID and Script :- ", order)
 }
-Examples
-Check examples folder for more examples.
+```
+
+##Examples
+Check example folder for more examples.
 
 You can run the following after updating the Credentials in the examples:
+```
+go run example/example.go
+```
+##Run unit tests
 
-go run examples/example.go
-Run unit tests
 go test -v
