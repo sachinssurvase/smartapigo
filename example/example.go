@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	SmartApi "smartapi-go"
+	SmartApi "github.com/angelbroking-github/smartapi-golang"
 )
 
 func main() {
