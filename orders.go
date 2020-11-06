@@ -79,24 +79,24 @@ type OrderResponse struct {
 
 // Trade represents an individual trade response.
 type Trade struct {
-	Exchange          string `json:"exchange"`
-	ProductType           string `json:"producttype"`
-	TradingSymbol     string `json:"tradingsymbol"`
-	InstrumentType   string `json:"instrumenttype"`
-	SymbolGroup   string `json:"symbolgroup"`
-	StrikePrice   string `json:"strikeprice"`
-	OptionType   string `json:"optiontype"`
-	ExpiryDate   string `json:"expirydate"`
-	MarketLot   string `json:"marketlot"`
-	Precision   string `json:"precision"`
-	Multiplier   string `json:"multiplier"`
-	TradeValue   string `json:"tradevalue"`
-	TransactionType   string `json:"transactiontype"`
-	FillPrice   string `json:"fillprice"`
-	FillSize   string `json:"fillsize"`
-	OrderID		string `json:"orderid"`
-	FillID		string `json:"fillid"`
-	FillTime   string `json:"filltime"`
+	Exchange        string `json:"exchange"`
+	ProductType     string `json:"producttype"`
+	TradingSymbol   string `json:"tradingsymbol"`
+	InstrumentType  string `json:"instrumenttype"`
+	SymbolGroup     string `json:"symbolgroup"`
+	StrikePrice     string `json:"strikeprice"`
+	OptionType      string `json:"optiontype"`
+	ExpiryDate      string `json:"expirydate"`
+	MarketLot       string `json:"marketlot"`
+	Precision       string `json:"precision"`
+	Multiplier      string `json:"multiplier"`
+	TradeValue      string `json:"tradevalue"`
+	TransactionType string `json:"transactiontype"`
+	FillPrice       string `json:"fillprice"`
+	FillSize        string `json:"fillsize"`
+	OrderID         string `json:"orderid"`
+	FillID          string `json:"fillid"`
+	FillTime        string `json:"filltime"`
 }
 
 // Trades is a list of trades.
@@ -146,6 +146,17 @@ type Position struct {
 
 // Positions represents a list of net and day positions.
 type Positions []Position
+
+// ConvertPositionParams represents the input params for a position conversion.
+type ConvertPositionParams struct {
+	Exchange        string `url:"exchange"`
+	TradingSymbol   string `url:"tradingsymbol"`
+	OldProductType  string `url:"oldproducttype"`
+	NewProductType  string `url:"newproducttype"`
+	TransactionType string `url:"transactiontype"`
+	Quantity        int    `url:"quantity"`
+	Type            string `json:"type"`
+}
 
 // GetOrderBook gets user orders.
 func (c *Client) GetOrderBook() (Orders, error) {
@@ -209,4 +220,17 @@ func (c *Client) GetTradeBook() (Trades, error) {
 	var trades Trades
 	err := c.doEnvelope(http.MethodGet, URIGetTradeBook, nil, nil, &trades, true)
 	return trades, err
+}
+
+// ConvertPosition converts position's product type.
+func (c *Client) ConvertPosition(convertPositionParams ConvertPositionParams) error {
+	var (
+		params map[string]interface{}
+		err    error
+	)
+
+	params = structToMap(convertPositionParams, "json")
+
+	err = c.doEnvelope(http.MethodPost, URIConvertPosition, params, nil, nil, true)
+	return err
 }

@@ -79,3 +79,13 @@ func (ts *TestSuite) TestGetPositions(t *testing.T) {
 		}
 	}
 }
+
+func (ts *TestSuite) TestConvertPosition(t *testing.T) {
+	t.Parallel()
+	params := ConvertPositionParams{"NSE","SBIN-EQ","DELIVERY","MARGIN","BUY",1,"DAY"}
+	err := ts.TestConnect.ConvertPosition(params)
+	if err != nil {
+		t.Errorf("Error while fetching positions. %v", err)
+	}
+
+}

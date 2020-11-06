@@ -8,7 +8,7 @@ import (
 func main() {
 
 	// Create New Angel Broking Client
-	ABClient := SmartApi.New("D88300", "Angel@444")
+	ABClient := SmartApi.New("D88311", "Angel@444")
 
 	fmt.Println("Client :- ",ABClient)
 
@@ -121,4 +121,12 @@ func main() {
 
 	fmt.Println("Risk Managemanet System :- ", rms)
 
+	//Position Conversion
+	err = ABClient.ConvertPosition(SmartApi.ConvertPositionParams{"NSE","SBIN-EQ","INTRADAY","MARGIN","BUY",1,"DAY"})
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	fmt.Println("Position Conversion Successful")
 }

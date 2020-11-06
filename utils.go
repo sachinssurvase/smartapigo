@@ -16,19 +16,20 @@ type Time struct {
 
 // API endpoints
 const (
-	URILogin            string = "login-service/rest/auth/angelbroking/user/v1/loginByPassword"
-	URIUserSessionRenew string = "login-service/rest/auth/angelbroking/jwt/v1/generateTokens"
-	URIUserProfile      string = "login-service/rest/secure/angelbroking/user/v1/getProfile"
-	URILogout           string = "login-service/rest/secure/angelbroking/user/v1/logout"
-	URIGetOrderBook     string = "order-service/rest/secure/angelbroking/order/v1/getOrderBook"
-	URIPlaceOrder       string = "order-service/rest/secure/angelbroking/order/v1/placeOrder"
-	URIModifyOrder      string = "order-service/rest/secure/angelbroking/order/v1/modifyOrder"
-	URICancelOrder      string = "order-service/rest/secure/angelbroking/order/v1/cancelOrder"
-	URIGetHoldings      string = "order-service/rest/secure/angelbroking/rms/v1/getHolding"
-	URIGetPositions     string = "order-service/rest/secure/angelbroking/rms/v1/getPosition"
-	URIGetTradeBook     string = "order-service/rest/secure/angelbroking/order/v1/getTradeBook"
-	URILTP				string = "order-service/rest/secure/angelbroking/order/v1/getLtpData"
-	URIRMS				string = "order-service/rest/secure/angelbroking/rms/v1/getRMS"
+	URILogin            string = "rest/auth/angelbroking/user/v1/loginByPassword"
+	URIUserSessionRenew string = "rest/auth/angelbroking/jwt/v1/generateTokens"
+	URIUserProfile      string = "rest/secure/angelbroking/user/v1/getProfile"
+	URILogout           string = "rest/secure/angelbroking/user/v1/logout"
+	URIGetOrderBook     string = "rest/secure/angelbroking/order/v1/getOrderBook"
+	URIPlaceOrder       string = "rest/secure/angelbroking/order/v1/placeOrder"
+	URIModifyOrder      string = "rest/secure/angelbroking/order/v1/modifyOrder"
+	URICancelOrder      string = "rest/secure/angelbroking/order/v1/cancelOrder"
+	URIGetHoldings      string = "rest/secure/angelbroking/portfolio/v1/getHolding"
+	URIGetPositions     string = "rest/secure/angelbroking/order/v1/getPosition"
+	URIGetTradeBook     string = "rest/secure/angelbroking/order/v1/getTradeBook"
+	URILTP              string = "rest/secure/angelbroking/order/v1/getLtpData"
+	URIRMS              string = "rest/secure/angelbroking/user/v1/getRMS"
+	URIConvertPosition  string = "rest/secure/angelbroking/order/v1/convertPosition"
 )
 
 func structToMap(obj interface{}, tagName string) map[string]interface{} {
@@ -48,6 +49,11 @@ func structToMap(obj interface{}, tagName string) map[string]interface{} {
 	case LTPParams:
 		{
 			con := obj.(LTPParams)
+			values = reflect.ValueOf(&con).Elem()
+		}
+	case ConvertPositionParams:
+		{
+			con := obj.(ConvertPositionParams)
 			values = reflect.ValueOf(&con).Elem()
 		}
 	}
