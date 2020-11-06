@@ -75,4 +75,6 @@ go run example/example.go
 ```
 ## Run unit tests
 
+```
 go test -v
+```
