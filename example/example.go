@@ -8,7 +8,7 @@ import (
 func main() {
 
 	// Create New Angel Broking Client
-	ABClient := SmartApi.New("D88311", "Angel@444")
+	ABClient := SmartApi.New("Your Client Code", "Your Password")
 
 	fmt.Println("Client :- ",ABClient)
 
