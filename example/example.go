@@ -52,7 +52,7 @@ func main() {
 	fmt.Println("Placed Order ID and Script :- ", order)
 
 	//Modify Order
-	modifiedOrder, err := ABClient.ModifyOrder(SmartApi.ModifyOrderParams{Variety: "NORMAL", OrderID: order.OrderID, OrderType: "LIMIT", ProductType: "INTRADAY", Duration: "DAY", Price: "19400", Quantity: "1"})
+	modifiedOrder, err := ABClient.ModifyOrder(SmartApi.ModifyOrderParams{Variety: "NORMAL", OrderID: order.OrderID, OrderType: "LIMIT", ProductType: "INTRADAY", Duration: "DAY", Price: "19400", Quantity: "1",TradingSymbol: "SBI-EQ",SymbolToken: "3045",Exchange: "NSE"})
 
 	if err != nil {
 		fmt.Println(err.Error())

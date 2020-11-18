@@ -62,13 +62,16 @@ type OrderParams struct {
 
 // OrderParams represents parameters for modifying an order.
 type ModifyOrderParams struct {
-	Variety     string `json:"variety"`
-	OrderID     string `json:"orderid"`
-	OrderType   string `json:"ordertype"`
-	ProductType string `json:"producttype"`
-	Duration    string `json:"duration"`
-	Price       string `json:"price"`
-	Quantity    string `json:"quantity"`
+	Variety       string `json:"variety"`
+	OrderID       string `json:"orderid"`
+	OrderType     string `json:"ordertype"`
+	ProductType   string `json:"producttype"`
+	Duration      string `json:"duration"`
+	Price         string `json:"price"`
+	Quantity      string `json:"quantity"`
+	TradingSymbol string `json:"tradingsymbol"`
+	SymbolToken   string `json:"symboltoken"`
+	Exchange      string `json:"exchange"`
 }
 
 // OrderResponse represents the order place success response.

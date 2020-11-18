@@ -44,7 +44,7 @@ func (ts *TestSuite) TestPlaceOrder(t *testing.T) {
 
 func (ts *TestSuite) TestModifyOrder(t *testing.T) {
 	t.Parallel()
-	params := ModifyOrderParams{"NORMAL", "test", "LIMIT", "INTRADAY", "DAY", "19400", "1"}
+	params := ModifyOrderParams{"NORMAL", "test", "LIMIT", "INTRADAY", "DAY", "19400", "1","SBI-EQ","3045","NSE"}
 	orderResponse, err := ts.TestConnect.ModifyOrder( params)
 	if err != nil {
 		t.Errorf("Error while updating order. %v", err)
