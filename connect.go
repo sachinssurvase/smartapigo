@@ -19,7 +19,7 @@ type Client struct {
 const (
 	name           string        = "smartapi-go"
 	requestTimeout time.Duration = 7000 * time.Millisecond
-	baseURI        string        = "https://openapisuat.angelbroking.com/"
+	baseURI        string        = "https://apiconnect.angelbroking.com/"
 )
 
 // New creates a new Smart API client.
