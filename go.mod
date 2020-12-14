@@ -1,4 +1,4 @@
-module github.com/angelbroking-github/smartapi-golang
+module github.com/angelbroking-github/smartapigo
 
 go 1.14
 
