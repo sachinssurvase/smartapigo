@@ -7,7 +7,7 @@ SmartAPI is a set of REST-like APIs that expose many capabilities required to bu
 
 ## Installation
 ```
-go get github.com/angelbroking-github/smartapi-golang
+go get github.com/angelbroking-github/smartapi
 ```
 ## API usage
 ```golang
@@ -15,7 +15,7 @@ package main
 
 import (
 	"fmt"
-	SmartApi "github.com/angelbroking-github/smartapi-golang"
+	SmartApi "github.com/angelbroking-github/smartapi"
 )
 
 func main() {
