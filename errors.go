@@ -1,4 +1,4 @@
-package smartapi_go
+package smartapigo
 
 // Error is the error type used for all API errors.
 type Error struct {

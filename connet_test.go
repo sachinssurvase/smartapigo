@@ -1,4 +1,4 @@
-package smartapi_go
+package smartapigo
 
 import (
 	"io/ioutil"
