@@ -13,6 +13,7 @@ type Client struct {
 	accessToken string
 	debug       bool
 	baseURI     string
+	apiKey      string
 	httpClient  HTTPClient
 }
 
@@ -23,10 +24,11 @@ const (
 )
 
 // New creates a new Smart API client.
-func New(clientCode string,password string) *Client {
+func New(clientCode string,password string,apiKey string) *Client {
 	client := &Client{
 		clientCode: clientCode,
 		password: password,
+		apiKey: apiKey,
 		baseURI: baseURI,
 	}
 
@@ -90,7 +92,7 @@ func (c *Client) doEnvelope(method, uri string, params map[string]interface{}, h
 	headers.Add("Accept", "application/json")
 	headers.Add("X-UserType", "USER")
 	headers.Add("X-SourceID", "WEB")
-	headers.Add("X-PrivateKey","")
+	headers.Add("X-PrivateKey",c.apiKey)
 	if authorization != nil && authorization[0]{
 		headers.Add("Authorization","Bearer "+c.accessToken)
 	}
