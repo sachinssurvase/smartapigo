@@ -21,7 +21,7 @@ import (
 func main() {
 
 	// Create New Angel Broking Client
-	ABClient := SmartApi.New("ClientCode", "Password")
+	ABClient := SmartApi.New("ClientCode", "Password","API Key")
 
 	fmt.Println("Client :- ",ABClient)
 
@@ -115,7 +115,7 @@ func onNoReconnect(attempt int) {
 func main() {
 
 	// Create New Angel Broking Client
-	ABClient := SmartApi.New("Your Client Code", "Your Password","Your api key")
+	ABClient := SmartApi.New("ClientCode", "Password","API Key")
 
 	// User Login and Generate User Session
 	session, err := ABClient.GenerateSession()
