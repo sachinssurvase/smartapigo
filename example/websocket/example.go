@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	SmartApi "github.com/angelbroking-github/smartapigo"
-	"github.com/angelbroking-github/smartapigo/websocket"
+	SmartApi "github.com/sachinssurvase/smartapigo"
+	"github.com/sachinssurvase/smartapigo/websocket"
 	"time"
 )
 
